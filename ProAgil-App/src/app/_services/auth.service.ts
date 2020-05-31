@@ -20,6 +20,7 @@ export class AuthService {
           if (user){
             localStorage.setItem('token', user.token);
             this.decodeToken = this.jwtHelper.decodeToken(user.token);
+            sessionStorage.setItem('userName', this.decodeToken.unique_name);
           }
         })
       );
